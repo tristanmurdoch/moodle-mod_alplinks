@@ -82,13 +82,13 @@ $launchcontainer = false;
 // Replace the following lines with you own code.
 if ( $launchcontainer ) {
     echo "<script language=\"javascript\">//<![CDATA[\n";
-    echo "window.open('launcher.php?id=".$course->id.'&linkid='.$alplinks->alplinkid."','alplinks');";
+    echo "window.open('launch.php?id=".$course->id.'&linkid='.$alplinks->alplinkid."','alplinks');";
     echo "//]]\n";
     echo "</script>\n";
     echo "<p>".get_string("basiclti_in_new_window", "lti")."</p>\n";
 } else {
 
-    echo '<iframe id="contentframe" height="600px" width="100%" type="text/html" src="launcher.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'" frameborder="0"></iframe>';
+    echo '<iframe id="contentframe" height="600px" width="100%" type="text/html" src="launch.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'" frameborder="0"></iframe>';
 }
 
 // Finish the page.

@@ -35,7 +35,7 @@
     $ltisettings = get_config('block_alp_player');
     
     $list = new stdClass;
-    $list->id = $linkid.'ALPBLOCK';
+    $list->id = $linkid.'alplinks';
     $list->course = $id;
     $list->instructorchoiceacceptgrades = false;
     $list->instructorchoicesendname = false;
