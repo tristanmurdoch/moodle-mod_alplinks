@@ -78,14 +78,19 @@ if ($alplinks->intro) {
 //redirect for testing.
 //redirect("launcher.php?id=".$course->id.'&linkid='.$alplinks->alplinkid, 'Loading', 1);
 
-$launchcontainer = false;
+$launchcontainer = true;
 // Replace the following lines with you own code.
 if ( $launchcontainer ) {
-    echo "<script language=\"javascript\">//<![CDATA[\n";
-    echo "window.open('launch.php?id=".$course->id.'&linkid='.$alplinks->alplinkid."','alplinks');";
-    echo "//]]\n";
-    echo "</script>\n";
-    echo "<p>".get_string("basiclti_in_new_window", "lti")."</p>\n";
+ 
+//    echo "<script language=\"javascript\">//<![CDATA[\n";
+//    echo "window.open('launch.php?id=".$course->id."&linkid=".$alplinks->alplinkid."alplinks', '_blank')";
+//    echo "//]]\n";
+//    echo "</script>\n";
+//    echo "<p>".get_string("basiclti_in_new_window", "lti")."</p>\n";
+      $url = new moodle_url('launch.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'alplinks');
+      echo html_writer::start_tag('p');
+      echo html_writer::link($url, get_string("basiclti_in_new_window_open", "lti"), array('target' => '_blank'));
+      echo html_writer::end_tag('p');
 } else {
 
     echo '<iframe id="contentframe" height="600px" width="100%" type="text/html" src="launch.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'" frameborder="0"></iframe>';

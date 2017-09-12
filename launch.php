@@ -24,7 +24,7 @@
     require_once('../../config.php');
     require_once($CFG->dirroot.'/mod/lti/lib.php');
     require_once($CFG->dirroot.'/mod/lti/locallib.php');
-    require_once($CFG->dirroot.'/blocks/alp_player/locallib.php');
+//    require_once($CFG->dirroot.'/blocks/alp_player/locallib.php');
 
     global $CFG, $COURSE;
     $id = optional_param('id', 0, PARAM_INT);
