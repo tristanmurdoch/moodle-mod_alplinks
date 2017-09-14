@@ -80,7 +80,7 @@ class mod_alplinks_mod_form extends moodleform_mod {
 //        $mform->addElement('static', 'label2', 'alplinkssetting2', 'Your alplinks fields go here. Replace me!');
 
         // Add standard grading elements.
-        $this->standard_grading_coursemodule_elements();
+//        $this->standard_grading_coursemodule_elements();
 
         // Add standard elements, common to all modules.
         $this->standard_coursemodule_elements();

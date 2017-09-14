@@ -75,21 +75,20 @@ echo $OUTPUT->header();
 if ($alplinks->intro) {
     echo $OUTPUT->box(format_module_intro('alplinks', $alplinks, $cm->id), 'generalbox mod_introbox', 'alplinksintro');
 }
-//redirect for testing.
-//redirect("launcher.php?id=".$course->id.'&linkid='.$alplinks->alplinkid, 'Loading', 1);
 
 $launchcontainer = true;
 // Replace the following lines with you own code.
 if ( $launchcontainer ) {
  
-//    echo "<script language=\"javascript\">//<![CDATA[\n";
-//    echo "window.open('launch.php?id=".$course->id."&linkid=".$alplinks->alplinkid."alplinks', '_blank')";
-//    echo "//]]\n";
-//    echo "</script>\n";
+    echo "<script language=\"javascript\">//<![CDATA[\n";
+    echo "window.open('launch.php?id=".$course->id."&linkid=".$alplinks->alplinkid."alplinks', '_blank')";
+    echo "//]]\n";
+    echo "</script>\n";
 //    echo "<p>".get_string("basiclti_in_new_window", "lti")."</p>\n";
       $url = new moodle_url('launch.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'alplinks');
       echo html_writer::start_tag('p');
-      echo html_writer::link($url, get_string("basiclti_in_new_window_open", "lti"), array('target' => '_blank'));
+      echo html_writer::link($url,"Click here to access Echo360 Link", array('target' => '_blank'));
+//      echo html_writer::link($url, get_string("basiclti_in_new_window_open", "lti"), array('target' => '_blank'));
       echo html_writer::end_tag('p');
 } else {
 
