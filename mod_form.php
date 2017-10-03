@@ -66,10 +66,11 @@ class mod_alplinks_mod_form extends moodleform_mod {
         } else {
             $this->add_intro_editor();
         }
-
-        $max = $DB->get_record_sql("SELECT MAX(alplinkid) FROM {alplinks}");
-        $num = (int)$max->max;
-        $num = $num + 1;
+	
+	$max = $DB->get_record_sql("SELECT MAX(CAST(alplinkid as INT)) FROM {alplinks}");
+        //$max = $DB->get_record_sql("SELECT MAX(alplinkid) FROM {alplinks}");
+        $num = (int)$max->max + 1;
+        //$num = $num + 1;
 
 //var_dump($num);
         // Adding the rest of alplinks settings, spreading all them into this fieldset
