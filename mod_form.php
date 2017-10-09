@@ -66,21 +66,14 @@ class mod_alplinks_mod_form extends moodleform_mod {
         } else {
             $this->add_intro_editor();
         }
+	
+	    $max = $DB->get_record_sql("SELECT MAX(CAST(alplinkid as INT)) FROM {alplinks}");
+        $num = (int)$max->max + 1;
 
-        $max = $DB->get_record_sql("SELECT MAX(alplinkid) FROM {alplinks}");
-        $num = (int)$max->max;
-        $num = $num + 1;
-
-//var_dump($num);
         // Adding the rest of alplinks settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
-        $mform->addElement('text', 'alplinkid', 'alplinkssetting1', array('size' => '64'));	//'Your alplinks fields go here. Replace me!');
+        $mform->addElement('hidden', 'alplinkid', 'alplinkssetting1', array('size' => '64'));	//'Your alplinks fields go here. Replace me!');
         $mform->setDefault('alplinkid', $num);
-        $mform->addElement('header', 'alplinksfieldset', get_string('alplinksfieldset', 'alplinks'));
-        $mform->addElement('static', 'label2', 'alplinkssetting2', 'Your alplinks fields go here. Replace me!');
-
-        // Add standard grading elements.
-        $this->standard_grading_coursemodule_elements();
 
         // Add standard elements, common to all modules.
         $this->standard_coursemodule_elements();
