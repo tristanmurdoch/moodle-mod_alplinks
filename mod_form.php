@@ -67,12 +67,14 @@ class mod_alplinks_mod_form extends moodleform_mod {
             $this->add_intro_editor();
         }
 	
-	$max = $DB->get_record_sql("SELECT MAX(CAST(alplinkid as INT)) FROM {alplinks}");
-        //$max = $DB->get_record_sql("SELECT MAX(alplinkid) FROM {alplinks}");
-        $num = (int)$max->max + 1;
-        //$num = $num + 1;
+        $min=100000;
+        $max=999999;
+        $isused = true;
 
-//var_dump($num);
+        while($isused){
+            $num = rand($min,$max);
+            $isused = $DB->record_exists('alplinks', array('alplinkid' => $num));
+        }
         // Adding the rest of alplinks settings, spreading all them into this fieldset
         // ... or adding more fieldsets ('header' elements) if needed for better logic.
         $mform->addElement('hidden', 'alplinkid', 'alplinkssetting1', array('size' => '64'));	//'Your alplinks fields go here. Replace me!');
