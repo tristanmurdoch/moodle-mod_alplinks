@@ -24,7 +24,6 @@
     require_once('../../config.php');
     require_once($CFG->dirroot.'/mod/lti/lib.php');
     require_once($CFG->dirroot.'/mod/lti/locallib.php');
-//    require_once($CFG->dirroot.'/blocks/alp_player/locallib.php');
 
     global $CFG, $COURSE;
     $id = optional_param('id', 0, PARAM_INT);
@@ -33,7 +32,7 @@
     require_login($course);
 
     $ltisettings = get_config('block_alp_player');
-    
+
     $list = new stdClass;
     $list->id = $linkid.'alplinks';
     $list->course = $id;
@@ -43,5 +42,5 @@
     $list->toolurl = $ltisettings->ALP_URL;
     $list->resourcekey = $ltisettings->ALP_Consumer_Key;
     $list->password = $ltisettings->ALP_Consumer_Secret;
-  
+
     lti_launch_tool($list);
