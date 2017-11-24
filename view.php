@@ -61,12 +61,6 @@ $PAGE->set_url('/mod/alplinks/view.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($alplinks->name));
 $PAGE->set_heading(format_string($course->fullname));
 
-/*
- * Other things you may want to set - remove if not needed.
- * $PAGE->set_cacheable(false);
- * $PAGE->set_focuscontrol('some-html-id');
- * $PAGE->add_body_class('alplinks-'.$somevar);
- */
 
 // Output starts here.
 echo $OUTPUT->header();
@@ -84,11 +78,9 @@ if ( $launchcontainer ) {
     echo "window.open('launch.php?id=".$course->id."&linkid=".$alplinks->alplinkid."alplinks', '_blank')";
     echo "//]]\n";
     echo "</script>\n";
-//    echo "<p>".get_string("basiclti_in_new_window", "lti")."</p>\n";
       $url = new moodle_url('launch.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'alplinks');
       echo html_writer::start_tag('p');
       echo html_writer::link($url,"Click here to access Echo360 Link", array('target' => '_blank'));
-//      echo html_writer::link($url, get_string("basiclti_in_new_window_open", "lti"), array('target' => '_blank'));
       echo html_writer::end_tag('p');
 } else {
 
