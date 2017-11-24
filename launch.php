@@ -31,7 +31,7 @@
     $course = $DB->get_record('course', array('id' => $id), '*', MUST_EXIST);
     require_login($course);
 
-    $ltisettings = get_config('block_alp_player');
+    $ltisettings = get_config('mod_alplinks');
 
     $list = new stdClass;
     $list->id = $linkid.'alplinks';
