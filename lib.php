@@ -137,11 +137,6 @@ function alplinks_refresh_events($courseid = 0) {
         }
     }
 
-    foreach ($alplinkss as $alplinks) {
-        // Create a function such as the one below to deal with updating calendar events.
-        // alplinks_update_events($alplinks);
-    }
-
     return true;
 }
 

@@ -32,7 +32,7 @@
     require_login($course);
 
     $ltisettings = get_config('block_alp_player');
-    
+
     $list = new stdClass;
     $list->id = $linkid.'alplinks';
     $list->course = $id;
@@ -42,5 +42,5 @@
     $list->toolurl = $ltisettings->ALP_URL;
     $list->resourcekey = $ltisettings->ALP_Consumer_Key;
     $list->password = $ltisettings->ALP_Consumer_Secret;
-  
+
     lti_launch_tool($list);

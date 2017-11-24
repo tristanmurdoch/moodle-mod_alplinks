@@ -61,12 +61,6 @@ $PAGE->set_url('/mod/alplinks/view.php', array('id' => $cm->id));
 $PAGE->set_title(format_string($alplinks->name));
 $PAGE->set_heading(format_string($course->fullname));
 
-/*
- * Other things you may want to set - remove if not needed.
- * $PAGE->set_cacheable(false);
- * $PAGE->set_focuscontrol('some-html-id');
- * $PAGE->add_body_class('alplinks-'.$somevar);
- */
 
 // Output starts here.
 echo $OUTPUT->header();
@@ -75,23 +69,21 @@ echo $OUTPUT->header();
 if ($alplinks->intro) {
     echo $OUTPUT->box(format_module_intro('alplinks', $alplinks, $cm->id), 'generalbox mod_introbox', 'alplinksintro');
 }
-//redirect for testing.
-//redirect("launcher.php?id=".$course->id.'&linkid='.$alplinks->alplinkid, 'Loading', 1);
 
 $launchcontainer = true;
 // Replace the following lines with you own code.
 if ( $launchcontainer ) {
- 
     echo "<script language=\"javascript\">//<![CDATA[\n";
     echo "window.open('launch.php?id=".$course->id."&linkid=".$alplinks->alplinkid."alplinks', '_blank')";
     echo "//]]\n";
     echo "</script>\n";
       $url = new moodle_url('launch.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'alplinks');
       echo html_writer::start_tag('p');
-      echo html_writer::link($url,"Click here to access Echo360 Link", array('target' => '_blank'));
+      echo html_writer::link($url, "Click here to access Echo360 Link", array('target' => '_blank'));
       echo html_writer::end_tag('p');
 } else {
-    echo '<iframe id="contentframe" height="600px" width="100%" type="text/html" src="launch.php?id='.$course->id.'&linkid='.$alplinks->alplinkid.'" frameborder="0"></iframe>';
+    echo '<iframe id="contentframe" height="600px" width="100%" type="text/html" src="launch.php?id='
+    .$course->id.'&linkid='.$alplinks->alplinkid.'" frameborder="0"></iframe>';
 }
 
 // Finish the page.
