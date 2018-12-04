@@ -37,8 +37,8 @@
     $list->id = $linkid.'alplinks';
     $list->course = $id;
     $list->instructorchoiceacceptgrades = false;
-    $list->instructorchoicesendname = false;
-    $list->instructorchoicesendemailaddr = false;
+    $list->instructorchoicesendname = true;
+    $list->instructorchoicesendemailaddr = true;
     $list->toolurl = $ltisettings->ALP_URL;
     $list->resourcekey = $ltisettings->ALP_Consumer_Key;
     $list->password = $ltisettings->ALP_Consumer_Secret;
